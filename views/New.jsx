@@ -1,4 +1,4 @@
-const react = require('react')
+const React = require('react')
 
 class New extends React.Component {
     render(){
@@ -9,3 +9,5 @@ class New extends React.Component {
         )
     }
 }
+
+module.exports = New
