@@ -4,7 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-// const methodOverride = ('method-override')
+const methodOverride = require('method-override')
 
 
 //PORT
@@ -20,7 +20,7 @@ const Job = require('./models/job.js')
 app.use(express.urlencoded({extended: false}))
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
-//app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))
 
 
 //DATABASE
