@@ -1,8 +1,11 @@
 const JobRouter = require('express').Router()
-const { trusted } = require('mongoose')
+const mongoose = require('mongoose')
 const Job = require('../models/job.js')
 
-//Index/////////////////////////////
+////////////////////////////////////
+//Index////////////////////////////
+///////////////////////////////////
+
 JobRouter.get('/',(req, res)=>{
     Job.find({},(error, allJobs)=>{
         if(error){
@@ -17,12 +20,18 @@ JobRouter.get('/',(req, res)=>{
     })
  })
 
- //New///////////////////////////////
- JobRouter.get('/new', (req,res)=>{
+////////////////////////////////////
+//New/////////////////////////////
+///////////////////////////////////
+
+ JobRouter.get('/new', (req, res)=>{
     res.render('../views/New.jsx')
  })
 
-//Delete////////////////////////////
+////////////////////////////////////
+//Destroy/////////////////////////////
+///////////////////////////////////
+
 JobRouter.delete('/:id', (req,res)=>{
     Job.findByIdAndDelete(req.params.id, (error,deletedJob)=>{
         if (error) {
@@ -36,10 +45,36 @@ JobRouter.delete('/:id', (req,res)=>{
     })
 })
 
+/////////////////////////////////////
 //Update////////////////////////////
+///////////////////////////////////
+
+JobRouter.put('/:id', (req, res)=>{
+    if (req.body.isRemote === 'on') {
+        req.body.isRemote = true
+    } else req.body.isRemote = false
+
+    if (req.body.isHybrid === 'on') {
+        req.body.isHybrid = true
+    } else req.body.isHybrid = false
+
+    Job.findByIdAndUpdate(req.params.id, req.body, (error, updatedJob)=>{
+        if (error) {
+            res.status(500).send({
+                error:error.message
+            })
+        } else {
+            res.redirect('/jobs')
+        }
+    })
+    
+})
 
 
-//Create///////////////////////////
+////////////////////////////////////
+//Create////////////////////////////
+///////////////////////////////////
+
 JobRouter.post('/', (req,res)=>{
     if (req.body.isRemote === 'on') {
         req.body.isRemote = true
@@ -61,16 +96,42 @@ JobRouter.post('/', (req,res)=>{
 })
 
 
-//Edit////////////////////////////
-// Job.Router.get('/:id/edit',(req, res)=>{
-//     Job.findByIdAndUpdate()
+////////////////////////////////////
+//Edit/////////////////////////////
+///////////////////////////////////
 
-// })
+JobRouter.get('/:id/edit', (req, res)=>{
+    Job.findById(req.params.id, (error, editedJob)=>{
+        if (error){
+            res.status(500).send({
+                error:error.message
+            })
+        } else {
+            res.render('../views/Edit.jsx', {
+                job:editedJob
+            })
+        }
+    })
+})
 
+ 
 
-
-
+/////////////////////////////////////
 //Show////////////////////////////
+///////////////////////////////////
 
+JobRouter.get('/:id', (req, res)=>{
+    Job.findById(req.params.id, (error, foundJob)=>{
+        if (error) {
+            res.status(500).send({
+                error:error.message
+            })
+        } else {
+            res.render('../views/Show.jsx', {
+                job:foundJob
+            })
+        }
+    })
+})
 
  module.exports = JobRouter
