@@ -5,11 +5,13 @@ const jobSchema = new Schema({
     companyName : {type: String, required: true},
     industry: {type: String, required: true},
     jobTitle: {type: String, required: true},
-    salary: Number,
-    isRemote: Boolean,
-    isHybrid: Boolean, 
+    salary: String,
+    workLocation: String, 
+    jobSummary: String,
+    educationAndExperience: String,
     uniqueBenefits: String,
-    reasonForApplying: String
+    reasonForApplying: String,
+    jobApplicationLink: String
 }, {
     timestamps: true
 })

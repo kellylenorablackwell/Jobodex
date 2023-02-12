@@ -19,9 +19,13 @@ class Index extends React.Component {
                                 {/*<h5>Unique company benefits: {job.uniqueBenefits}</h5>
                                 <h5>Reason for applying: {job.reasonForApplying}</h5> */}
                             </li>
+                            
                         )
                     })}
                 </ul>
+                <form action="/jobs/new">
+                    <input type="submit" value='Add a Job'/>
+                </form>
             </>
         )
     }
