@@ -23,12 +23,20 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use(methodOverride('_method'))
 
 
+//Static Pages
+app.get('/home', (req, res)=>{
+  res.render('../views/static/Home.jsx')
+})
+
+
 //DATABASE
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
   console.log('The connection to Mongo was successful.');
 });
+
+
 
 
 
