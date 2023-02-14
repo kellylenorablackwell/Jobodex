@@ -26,6 +26,9 @@ class Index extends React.Component {
                 <form action="/jobs/new">
                     <input type="submit" value='Add a Job'/>
                 </form>
+                <form action="/exit">
+                    <input type="submit" value='Exit Jobodex'/>
+                </form>
             </>
         )
     }

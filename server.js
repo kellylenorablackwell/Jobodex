@@ -16,16 +16,21 @@ const Job = require('./models/job.js')
 
 
 //MIDDLEWARE
-// app.use(express.static('public'))
 app.use(express.urlencoded({extended: false}))
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 
 //Static Pages
 app.get('/home', (req, res)=>{
   res.render('../views/static/Home.jsx')
+})
+
+app.get('/exit', (req, res)=>{
+  res.render('../views/static/Exit.jsx')
+
 })
 
 
@@ -38,10 +43,9 @@ mongoose.connection.once('open', () => {
 
 
 
-
-
 //CONTROLLER
 app.use('/jobs', require('./controllers/jobController.js'))
+
 
 
 // Job.create({
