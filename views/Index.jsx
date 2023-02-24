@@ -1,10 +1,12 @@
 const React = require('react')
+const NavBar = require('./components/NavBar.jsx')
 
 class Index extends React.Component {
     render(){
         return(
             <>
-            <h1>All Jobs</h1>
+            <NavBar/>
+            <h1>Saved Jobs</h1>
                 <ul>
                     {this.props.allJobs.map((job)=>{
                         return (

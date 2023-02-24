@@ -23,7 +23,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 
-//Static Pages
+// //Static Pages
 app.get('/home', (req, res)=>{
   res.render('../views/static/Home.jsx')
 })

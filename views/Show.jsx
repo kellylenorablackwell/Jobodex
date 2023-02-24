@@ -1,12 +1,12 @@
 const React = require('react')
+const NavBar = require('./components/NavBar.jsx')
 
 class Show extends React.Component {
     render(){
         const {companyName, industry, jobTitle, salary, workLocation, jobSummary, educationAndExperience, uniqueBenefits, reasonForApplying, jobApplicationLink, _id} = this.props.job
         return(
             <div>
-                <a href='/jobs'>Return to All Jobs</a>
-
+                <NavBar/>
                 <h1>{companyName}</h1>
                 <h5>Industry: {industry}</h5>
                 <h5>Job Title: {jobTitle}</h5>

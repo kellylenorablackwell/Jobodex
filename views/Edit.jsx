@@ -1,11 +1,13 @@
 const React = require('react')
+const NavBar = require('./components/NavBar.jsx')
 
 class Edit extends React.Component {
     render(){
         const {companyName, industry, jobTitle, salary, workLocation, jobSummary, educationAndExperience, jobApplicationLink, uniqueBenefits, reasonForApplying, _id} = this.props.job
+        
         return(
             <div>
-                <a href='/jobs'>Return to Home Page</a>
+                <NavBar/>
                 <h1>Edit a Job</h1>
                     <form action={`/jobs/${_id}/?_method=PUT`} method='POST'>
                         Company Name: <input type="text" name='companyName' defaultValue={companyName}/><br />

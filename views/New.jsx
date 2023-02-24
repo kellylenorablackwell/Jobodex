@@ -1,6 +1,5 @@
 const React = require('react')
-
-
+const NavBar = require('./components/NavBar.jsx')
 
 class New extends React.Component {
     render(){
@@ -14,9 +13,8 @@ class New extends React.Component {
             width: '345px',
             margin: '35px 50px 100px 50px',
             padding: '1px 15px 30px 25px'
-            
-         
          };
+
          const inputStyle = {
             // borderStyle: 'solid',
             // borderWidth: '1px',
@@ -24,14 +22,12 @@ class New extends React.Component {
             // height: '400px',
             width: '325px',
             margin: '1px',
-       
-            
-         
          };
         return(
             <div>
-                <a href='/jobs'>See All Jobs</a>
-                <div style={formStyle}> <h1 style={{backgroundColor: 'lightblue', width: '335px'}}>Add a Job</h1>
+                <NavBar/>
+                
+                <div style={formStyle}> <h1 style={{backgroundColor: '#004aad', width: '335px'}}>Add a Job</h1>
                     <form action='/jobs' method='POST'>
                         Company Name: <input style={inputStyle} type="text" name='companyName' value=''/><br />
                         Industry: <input style={inputStyle} type="text" name='industry' value='' /><br />
