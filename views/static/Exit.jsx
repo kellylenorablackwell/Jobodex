@@ -6,7 +6,7 @@ class Exit extends React.Component {
         return(
             <div>
                 <NavBar/>
-                <h1>Thank you for using Jobodex! Happy hunting!</h1>
+                <h1 style={{  fontFamily: 'Verdana', fontSize: '10px', }}>Thank you for using Jobodex! Happy hunting!</h1>
             </div>
         )
     }

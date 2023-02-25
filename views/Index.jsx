@@ -7,8 +7,8 @@ class Index extends React.Component {
         return(
             <>
             <NavBar/>
-            <h1>Saved Jobs</h1>
-                <ul>
+            <h1 style={{fontFamily: 'Verdana', fontSize: '20px'}}>Saved Jobs</h1>
+                <ul style={{fontFamily: 'Verdana', fontSize: '10px'}}>
                     {this.props.allJobs.map((job)=>{
                         return (
                             <li key={job._id}>
