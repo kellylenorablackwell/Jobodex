@@ -5,28 +5,30 @@ class NavBar extends React.Component {
         const ulStyle = {
           listStyle: 'none',
           display:'flex',
-        //   justifyContent: 'start',
           marginTop:'1px',
           marginLeft: '1px',
           borderBottom: '1px solid lightGray',
-        //   border: '1px solid purple',
-          padding: '1px'
+          padding: '1px',
+        //border: '1px solid purple',
+
         }
 
         const logoStyle = {
-            // border: '1px solid green',
             padding:'0px 600px 0px 0px',
+         // border: '1px solid green',
+
         }
 
         const navBarStyle = {
-            // border: '1px solid red',
             alignSelf:'center',
             padding:'0px 17px 0px 17px',
+         // border: '1px solid red',
+
         }
 
         const aTagStyle = {
             textDecoration: 'none',
-            fontFamily: 'Courier New',
+            fontFamily: 'Verdana',
             fontSize: '10px',
             color: 'black'
             

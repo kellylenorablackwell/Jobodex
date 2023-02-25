@@ -1,5 +1,6 @@
 const React = require('react')
 const NavBar = require('./components/NavBar.jsx')
+const Button = require('./components/Button.jsx')
 
 class Index extends React.Component {
     render(){
@@ -25,12 +26,14 @@ class Index extends React.Component {
                         )
                     })}
                 </ul>
-                <form action="/jobs/new">
+                {/* <form action="/jobs/new">
                     <input type="submit" value='Add a Job'/>
                 </form>
                 <form action="/exit">
                     <input type="submit" value='Exit Jobodex'/>
-                </form>
+                </form> */}
+                <Button formAction='/jobs/new' value='Add a Job'/>
+                
             </>
         )
     }

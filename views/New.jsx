@@ -1,5 +1,6 @@
 const React = require('react')
 const NavBar = require('./components/NavBar.jsx')
+const Button = require('./components/Button.jsx')
 
 class New extends React.Component {
     render(){
@@ -39,7 +40,7 @@ class New extends React.Component {
                         If any, what unique benefits does the company offer? <input style={inputStyle} type="text" name='uniqueBenefits' value='' /><br />
                         What are your reasons for applying for this role? <input style={inputStyle} type="text" name='reasonForApplying' value='' /><br />
                         Link to job application: <input style={inputStyle} type="text" name='jobApplicationLink' value='' /><br />
-                        <input type="submit" value='Add'/> 
+                        <Button formAction='/jobs/new' value='Add'/>
                    </form>
                 </div>   
             </div>
